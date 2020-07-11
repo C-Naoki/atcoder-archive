@@ -1,0 +1,12 @@
+{
+	"id": 15168635,
+	"epoch_second": 1594471867,
+	"problem_id": "aising2020_c",
+	"contest_id": "aising2020",
+	"user_id": "C_NaoKi",
+	"language": "PyPy3 (7.3.0)",
+	"point": 300,
+	"length": 416,
+	"result": "AC",
+	"execution_time": 183
+}
