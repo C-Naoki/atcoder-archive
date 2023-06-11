@@ -1,0 +1,51 @@
+name: Procon-gardener
+
+on:
+  schedule:
+  - cron: "0 0 * * 3"
+  push:
+
+jobs:
+  build:
+    permissions:
+      actions: write
+      checks: write
+      contents: write
+      deployments: write
+      issues: write
+      packages: write
+      pull-requests: write
+      repository-projects: write
+      security-events: write
+      statuses: write
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+
+    - name: Install procon-gardener
+      run: |
+        go install github.com/togatoga/procon-gardener@latest
+        procon-gardener init
+
+    - name: Edit config.json
+      run: |
+        cd ../../../.procon-gardener
+        jq '.atcoder.repository_path|="."' config.json > tmp
+        mv tmp config.json
+        # ここを[]ごと書き換える
+        jq '.atcoder.user_id|="C_NaoKi"' config.json > tmp
+        mv tmp config.json
+        jq '.atcoder.user_email|="u429561d@ecs.osaka-u.ac.jp"' config.json > tmp
+        mv tmp config.json
+
+    - name: Archive
+      run: procon-gardener archive
+
+    - name: Git push
+      run: git push
