@@ -10,6 +10,6 @@ I enjoy solving algorithmic problems and participating in coding competitions. A
 
 ## AtCoder Profile 🧑‍💼
 
-You can check out my AtCoder profile by clicking on the badge above. Click [here](https://atcoder.jp/users/C_NaoKi) for more details!
+You can check out my AtCoder profile by clicking on the badge above.
 
 Let's code together and have fun! 😄
