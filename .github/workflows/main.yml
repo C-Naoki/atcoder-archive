@@ -2,7 +2,7 @@ name: Procon-gardener
 
 on:
   schedule:
-  - cron: "0 0 * * 1"
+  - cron: "0 0 * * *"
   push:
 
 jobs:
@@ -30,7 +30,7 @@ jobs:
 
     - name: Install procon-gardener
       run: |
-        go install github.com/C-Naoki/procon-gardener@latest
+        go install github.com/togatoga/procon-gardener@latest
         procon-gardener init
 
     - name: Edit config.json
